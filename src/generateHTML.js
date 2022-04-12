@@ -1,15 +1,16 @@
+//HTML creation for different team members
 const managerHTML = function (manager) {
     return `
     <div class="col-4 mt-4">
         <div class="card h-100">
             <div class="card-header">
                 <h3>${manager.name}</h3>
-                <h4>Manager</h4><i class="material-icons"></i>
+                <h4>Manager</h4>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${manager.id}</p>
                 <p class="email">Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
-                <p class="office">Office Number: ${manager.officeNumber}</p>
+                <p class="office">Office Number: ${manager.office}</p>
             </div>
         </div>
     </div>
@@ -23,7 +24,7 @@ const engineerHTML = function (engineer) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${engineer.name}</h3>
-                <h4>Engineer</h4><i class="material-icons"></i>
+                <h4>Engineer</h4>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${engineer.id}</p>
@@ -41,11 +42,11 @@ const internHTML = function (intern) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${intern.name}</h3>
-                <h4>Intern</h4><i class="material-icons"></i>
+                <h4>Intern</h4>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${intern.id}</p>
-                <p class="email">Email:<a href="mailto:${intern.email}">${intern.email}</a></p>
+                <p class="email">Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
                 <p class="school">School: ${intern.school}</p>
             </div>
         </div>
@@ -53,27 +54,28 @@ const internHTML = function (intern) {
     `
 };
 
+//loops through team array to append HTML snippets to the base template
 generateHTML = (data) => {
     const teamArray = [];
 
-    for (let i = 0; i < data.length; i++){
+    for (let i = 0; i < data.length; i++) {
         const employee = data[i];
         const role = employee.getRole();
 
-        if (role === "Manager"){
+        if (role === "Manager") {
             const manager = managerHTML(employee);
             teamArray.push(manager);
         }
-        else if (role === "Engineer"){
+        else if (role === "Engineer") {
             const engineer = engineerHTML(employee);
             teamArray.push(engineer);
         }
-        else if (role === "Intern"){
+        else if (role === "Intern") {
             const intern = internHTML(employee);
             teamArray.push(intern);
         }
 
-        
+
     }
 
     const employees = teamArray.join("");
@@ -81,7 +83,8 @@ generateHTML = (data) => {
     return generateTeam;
 }
 
-const generateTeamHTML = function(employees){
+//base HTML template
+const generateTeamHTML = function (employees) {
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -91,18 +94,18 @@ const generateTeamHTML = function(employees){
       <meta name="Description" content="Enter your description here" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
       <script src="https://kit.fontawesome.com/0d277fa621.js" crossorigin="anonymous"></script>
-      <title>Team Member profiles</title>
+      <title>Team Profile</title>
     </head>
     <body>
-        <div class="jumbotron jumbotron-fluid bg-info">
+        <div class="jumbotron jumbotron-fluid bg-dark">
             <div class="container">
-            <h1 class="display-4 align-content-center text-center bg-info ">Team Profile Generator</h1>
+            <h1 class="display-4 align-content-center text-center bg-dark ">Team Profile Generator</h1>
         
             </div>
         </div>
-        <section class="row">
+        <div class="row">
         ${employees}
-        </section>
+        </div>
     </body>
     </html>`
 }

@@ -1,3 +1,4 @@
+//imports packages
 const inquirer = require("inquirer");
 const fs = require("fs");
 const Engineer = require("./lib/Engineer");
@@ -6,6 +7,7 @@ const Manager = require("./lib/Manager");
 const generateHTML = require("./src/generateHTML");
 const team = [];
 
+//inquirer prompts for user input
 const addManager = () => {
     return inquirer
         .prompt([
@@ -37,8 +39,10 @@ const addManager = () => {
                 managerInput.email,
                 managerInput.office
             );
+            console.log(manager);
             team.push(manager);
             teamSelect();
+
         });
 };
 
