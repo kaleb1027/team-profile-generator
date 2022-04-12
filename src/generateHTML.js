@@ -65,11 +65,11 @@ generateHTML = (data) => {
             teamArray.push(manager);
         }
         else if (role === "Engineer"){
-            const engineer = managerHTML(employee);
+            const engineer = engineerHTML(employee);
             teamArray.push(engineer);
         }
         else if (role === "Intern"){
-            const intern = managerHTML(employee);
+            const intern = internHTML(employee);
             teamArray.push(intern);
         }
 
@@ -82,5 +82,29 @@ generateHTML = (data) => {
 }
 
 const generateTeamHTML = function(employees){
-    
+    return `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta name="Description" content="Enter your description here" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+      <script src="https://kit.fontawesome.com/0d277fa621.js" crossorigin="anonymous"></script>
+      <title>Team Member profiles</title>
+    </head>
+    <body>
+        <div class="jumbotron jumbotron-fluid bg-info">
+            <div class="container">
+            <h1 class="display-4 align-content-center text-center bg-info ">Team Profile Generator</h1>
+        
+            </div>
+        </div>
+        <section class="row">
+        ${employees}
+        </section>
+    </body>
+    </html>`
 }
+
+module.exports = generateHTML;
