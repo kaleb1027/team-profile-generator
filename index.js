@@ -132,6 +132,10 @@ const addIntern = () => {
                 userChoice.email,
                 userChoice.school
             )
+            console.log(userChoice.name)
+            console.log(userChoice.id)
+            console.log(userChoice.email)
+            console.log(userChoice.school)
             team.push(intern);
             teamSelect();
             
