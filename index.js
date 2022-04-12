@@ -125,17 +125,13 @@ const addIntern = () => {
                 name: "school",
             },
         ])
-        .then((userChoice) = () => {
+        .then((answers) => {
             const intern = new Intern(
-                userChoice.name,
-                userChoice.id,
-                userChoice.email,
-                userChoice.school
+                answers.name,
+                answers.id,
+                answers.email,
+                answers.school
             )
-            console.log(userChoice.name)
-            console.log(userChoice.id)
-            console.log(userChoice.email)
-            console.log(userChoice.school)
             team.push(intern);
             teamSelect();
             
