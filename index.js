@@ -53,7 +53,101 @@ const teamSelect = () => {
             },
         ])
         .then((userChoice) => {
-            if (userChoice)
+            if (userChoice.select === "Add an engineer"){
+                addEngineer();
+            }
+            else if(userChoice.select === "Add an intern"){
+                addIntern();
+            }
+            else{
+                createPage(team);
+            }
+        });
+};
+
+const addEngineer = () => {
+    return inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "What is the engineer's name?",
+                name: "name",
+            },
+            {
+                type: "input",
+                message: "What is the engineer's id?",
+                name: "id",
+            },
+            {
+                type: "input",
+                message: "What is the engineer's email address?",
+                name: "email",
+            },
+            {
+                type: "input",
+                message: "What is the engineer's Github username?",
+                name: "github",
+            },
+        ])
+        .then((userChoice) => {
+            const engineer = new Engineer(
+                userChoice.name,
+                userChoice.id,
+                userChoice.email,
+                userChoice.github
+            );
+            team.push(engineer);
+            teamSelect();
+        })  
+}
+
+const addIntern = () => {
+    return inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "What is the intern's name?",
+                name: "name",
+            },
+            {
+                type: "input",
+                message: "What is the intern's id?",
+                name: "id",
+            },
+            {
+                type: "input",
+                message: "What is the intern's email address?",
+                name: "email",
+            },
+            {
+                type: "input",
+                message: "Where does the intern attend school?",
+                name: "school",
+            },
+        ])
+        .then((userChoice) = () => {
+            const intern = new Intern(
+                userChoice.name,
+                userChoice.id,
+                userChoice.email,
+                userChoice.school
+            )
+            team.push(intern);
+            teamSelect();
+            
         })
 }
+
+function createPage(team){
+    const page = generateHTML(team);
+    fs.writeFile("dist/test.html", layout, (err) =>
+    err ? console.log(err) : console.log("Success!")
+    );
+}
+
+function init(){
+    addManager();
+}
+
+init();
 
