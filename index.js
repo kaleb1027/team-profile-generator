@@ -140,7 +140,7 @@ const addIntern = () => {
 
 function createPage(team){
     const page = generateHTML(team);
-    fs.writeFile("dist/test.html", layout, (err) =>
+    fs.writeFile("dist/test.html", page, (err) =>
     err ? console.log(err) : console.log("Success!")
     );
 }
