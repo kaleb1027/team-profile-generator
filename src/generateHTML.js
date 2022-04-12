@@ -53,3 +53,34 @@ const internHTML = function (intern) {
     `
 };
 
+generateHTML = (data) => {
+    const teamArray = [];
+
+    for (let i = 0; i < data.length; i++){
+        const employee = data[i];
+        const role = employee.getRole();
+
+        if (role === "Manager"){
+            const manager = managerHTML(employee);
+            teamArray.push(manager);
+        }
+        else if (role === "Engineer"){
+            const engineer = managerHTML(employee);
+            teamArray.push(engineer);
+        }
+        else if (role === "Intern"){
+            const intern = managerHTML(employee);
+            teamArray.push(intern);
+        }
+
+        
+    }
+
+    const employees = teamArray.join("");
+    const generateTeam = generateTeamHTML(employees);
+    return generateTeam;
+}
+
+const generateTeamHTML = function(employees){
+    
+}
