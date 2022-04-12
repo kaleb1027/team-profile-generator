@@ -5,7 +5,7 @@
   
   ## Description
 
-  This is a command line based application that lets you make profiles for the members of your team on a calloborative project.
+  This is a command line based application that lets you make profiles for the members of your team on a collaborative project.
 
   ## Table of Contents
   - [Installation](#installation)
